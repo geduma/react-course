@@ -45,10 +45,28 @@ article button:hover {
   transition: .3s ease background-color;
 }
 
-article button.following {
-  border: 1px solid red;
+.isFollowing-text {
+  display: none;
 }
 
-article button.following:hover {
-  background: red;
+article button.not-following {
+  border: 1px solid #bbb;
+  background: transparent;
+  color: #fff;
+  width: 140px;
+}
+
+article button.not-following:hover {
+  background: rgba(255, 0, 0, 0.120);
+  color: red;
+  border: 1px solid red;
+  transition: .3s ease all;
+}
+
+article button.not-following:hover .following-text {
+  display: none;
+}
+
+article button.not-following:hover .isFollowing-text {
+  display: block;
 }

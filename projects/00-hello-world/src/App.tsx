@@ -4,18 +4,33 @@ import { TwitterFollowCard } from './TwitterFollowCard'
 export function App() {
   const format = (userName: string) => `@${userName}`
 
+  const users = [
+    {
+      userName: 'geduma',
+      name: 'Felipe Marino'
+    },
+    {
+      userName: 'midudev',
+      name: 'Miguel Angel Duran'
+    }
+  ]
+
   return (
     <>
-      <TwitterFollowCard
-        formatUserName={format}
-        userName='geduma'>
-        Felipe Marino
-      </TwitterFollowCard>
-      <TwitterFollowCard
-        formatUserName={format}
-        userName='midudev'>
-        Miguel Angel Duran
-      </TwitterFollowCard>
+      {
+        users.map(({ userName, name }) => { /* iteration example */
+          if (userName) { /* conditional example */
+            return (
+              <TwitterFollowCard
+                key={userName}
+                userName={userName}
+                formatUserName={format}>
+                {name}
+              </TwitterFollowCard>
+            )
+          }
+        })
+      }
     </>
   )
 }
